@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Elite Auto Detailing</title>
+<meta name="description" content="">
+<style>
+:root{--black:#0a0a0a;--card:#141414;--mid:#a3a3a3;--soft:#d4d4d4;--line:#2a2a2a;--grey:#525252;--rule:#dcdcdc;--h:68px;
+--serif:"Didot","Bodoni 72","Playfair Display",Georgia,"Times New Roman",serif;--sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:var(--h)}
+body{margin:0;background:var(--black);color:#fff;font:400 17px/1.65 var(--sans);overflow-wrap:break-word}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.light :focus-visible{outline-color:#000}
+.skip{position:absolute;left:12px;top:-60px;background:#fff;color:#000;padding:12px 18px;z-index:100;font-weight:600}
+.skip:focus{top:12px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+.btn{white-space:nowrap;display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 26px;border:2px solid #fff;background:#fff;color:#000;font:600 13px var(--sans);letter-spacing:.14em;text-transform:uppercase;text-decoration:none;cursor:pointer;transition:background .2s,color .2s}
+.btn:hover{background:transparent;color:#fff}
+.btn.ghost{background:transparent;color:#fff}
+.btn.ghost:hover{background:#fff;color:#000}
+.btn.sm{min-height:44px;padding:0 18px}
+.light .btn{background:#000;color:#fff;border-color:#000}
+.light .btn:hover,.light .btn.ghost{background:transparent;color:#000}
+.light .btn.ghost:hover{background:#000;color:#fff}
+header .wrap{max-width:1240px}
+header{position:sticky;top:0;z-index:50;background:rgba(10,10,10,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0px)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;height:var(--h)}
+.logo{display:inline-block;padding:12px 0;font:700 20px var(--serif);letter-spacing:.14em;text-transform:uppercase;text-decoration:none;white-space:nowrap}
+nav ul{display:flex;gap:28px;list-style:none;margin:0;padding:0}
+nav a{display:inline-block;padding:10px 0;color:var(--soft);text-decoration:none;font-size:14px;letter-spacing:.1em;text-transform:uppercase;border-bottom:2px solid transparent}
+nav a:hover,nav a[aria-current]{color:#fff;border-color:#fff}
+.hbtns{display:flex;gap:10px}
+#menu{display:none;min-height:44px;padding:0 16px;background:transparent;color:#fff;border:2px solid #fff;font:600 13px var(--sans);letter-spacing:.14em;text-transform:uppercase;cursor:pointer}
+.sec{padding:96px 0}
+.light{background:#fff;color:#000}
+.eyebrow{font:600 12px var(--sans);letter-spacing:.24em;text-transform:uppercase;color:var(--mid);margin:0 0 16px}
+.light .eyebrow,.light .muted{color:var(--grey)}
+h1,h2,h3{font-family:var(--serif);font-weight:700;line-height:1.08;margin:0}
+h2{font-size:clamp(34px,5vw,54px);margin-bottom:20px}
+h3{font-size:24px}
+.muted{color:var(--mid)}
+.lead{font-size:20px;color:var(--soft);max-width:34em}
+#home{min-height:calc(100svh - var(--h));display:flex;align-items:center;padding:72px 0;background:radial-gradient(55% 60% at 80% 20%,#2b2b2b 0,transparent 70%),repeating-linear-gradient(115deg,transparent 0 46px,rgba(255,255,255,.035) 46px 47px),var(--black)}
+h1{font-size:clamp(44px,9vw,112px);letter-spacing:-.01em;margin-bottom:24px;max-width:10em}
+.cta{display:flex;flex-wrap:wrap;gap:14px;margin:32px 0 56px}
+.stats{display:flex;flex-wrap:wrap;gap:12px 48px;margin:0;border-top:1px solid var(--line);padding-top:28px}
+.stats div{display:flex;flex-direction:column-reverse}
+.stats dt{color:var(--mid);font-size:14px}
+.stats dd{margin:0;font:700 36px var(--serif)}
+.two>*{min-width:0}
+.two{display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:start}
+.ticks{list-style:none;margin:0;padding:0;border-top:1px solid var(--rule)}
+.ticks li{padding:16px 0 16px 36px;border-bottom:1px solid var(--rule);position:relative}
+.ticks li::before{content:"\2713";position:absolute;left:4px;font-weight:700}
+.grid{display:grid;gap:20px;grid-template-columns:repeat(3,1fr);margin-top:48px}
+.card{background:var(--card);border:1px solid var(--line);padding:32px;display:flex;flex-direction:column;gap:12px}
+.card .price{font:600 13px var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--mid)}
+.card p{margin:0;color:var(--soft);flex:1}
+.card a.more{font-size:14px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;padding:14px 0}
+.light .card{background:#fff;border-color:var(--rule)}
+.light .card p{color:#333}
+.light .card .price{color:var(--grey)}
+.gal{grid-template-columns:repeat(3,1fr)}
+.gal figure{margin:0;position:relative;aspect-ratio:4/3;overflow:hidden;background:linear-gradient(135deg,#1a1a1a,#3a3a3a 55%,#111)}
+.gal img{width:100%;height:100%;object-fit:cover}
+.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:14px 16px;font-size:14px;letter-spacing:.08em;text-transform:uppercase;background:linear-gradient(transparent,rgba(0,0,0,.85));color:#fff}
+.rate{font-size:20px;letter-spacing:.2em}
+.stars{letter-spacing:.15em;font-size:20px}
+blockquote{margin:0;flex:1;font:400 20px/1.5 var(--serif)}
+.who{font-size:14px;color:var(--mid)}
+.contact dl{margin:24px 0}
+.contact dt{font:600 12px var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--grey);margin-top:20px}
+.contact dd{margin:4px 0 0;font-size:19px}
+table{border-collapse:collapse;width:100%;max-width:360px}
+th,td{text-align:left;padding:6px 0;font-weight:400;font-size:17px}
+td{text-align:right}
+form{display:grid;gap:16px}
+label{font-weight:600;font-size:14px;letter-spacing:.06em;display:grid;gap:6px}
+input,select,textarea{font:inherit;padding:12px 14px;border:2px solid #000;background:#fff;color:#000;border-radius:0;width:100%}
+iframe{width:100%;min-height:700px;border:1px solid var(--rule);margin-bottom:32px}
+#st{margin:0;font-size:15px;color:var(--grey)}
+footer{border-top:1px solid var(--line);padding:32px 0 40px;color:var(--mid);font-size:15px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-between}
+footer a{padding:12px 0;display:inline-block}
+.mbar{display:none}
+@media (max-width:980px){.grid,.gal{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:1180px){
+  .hbtns{display:none}
+  #menu{display:block}
+  nav{position:absolute;left:0;right:0;top:100%;background:var(--black);border-bottom:1px solid var(--line);display:none}
+  nav.open{display:block}
+  nav ul{flex-direction:column;gap:0;padding:8px 24px 16px}
+  nav a{display:block;padding:14px 0;border-bottom:1px solid var(--line)}
+  .mbar{display:grid;grid-template-columns:1fr 1fr;position:fixed;left:0;right:0;bottom:0;z-index:60;padding-bottom:env(safe-area-inset-bottom,0px);background:#fff}
+  .mbar .btn{min-height:56px;border-radius:0}
+  body{padding-bottom:calc(56px + env(safe-area-inset-bottom,0px))}
+}
+@media (max-width:860px){.two{grid-template-columns:minmax(0,1fr);gap:40px}.sec{padding:72px 0}}
+@media (max-width:640px){.grid{grid-template-columns:1fr}.gal{grid-template-columns:1fr 1fr;gap:12px}.card{padding:24px}.logo{font-size:15px;letter-spacing:.08em;white-space:normal;line-height:1.15}.bar{gap:12px}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header>
+  <div class="wrap bar">
+    <a class="logo" href="#home" data-name></a>
+    <nav id="nav" aria-label="Main">
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="hbtns">
+      <a class="btn ghost sm" data-call>Call Now</a>
+      <a class="btn sm" data-book>Book Now</a>
+    </div>
+    <button id="menu" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+  </div>
+</header>
+<main id="main">
+  <section id="home" aria-labelledby="h-home"><div class="wrap"></div></section>
+  <section id="about" class="sec light" aria-labelledby="h-about"><div class="wrap two"></div></section>
+  <section id="services" class="sec" aria-labelledby="h-services"><div class="wrap"></div></section>
+  <section id="gallery" class="sec light" aria-labelledby="h-gallery"><div class="wrap"></div></section>
+  <section id="reviews" class="sec" aria-labelledby="h-reviews"><div class="wrap"></div></section>
+  <section id="contact" class="sec light contact" aria-labelledby="h-contact"><div class="wrap"></div></section>
+</main>
+<footer><div class="wrap"></div></footer>
+<div class="mbar"><a class="btn ghost" data-call>Call</a><a class="btn" data-book>Book Now</a></div>
+<noscript><p style="padding:24px">Please enable JavaScript to view this website.</p></noscript>
+
+<script>
+/* ============================================================
+   EDIT THIS BLOCK TO CUSTOMIZE THE SITE FOR A NEW CLIENT.
+   Everything on the page is generated from CONFIG.
+   ============================================================ */
+const CONFIG = {
+  name: "Elite Auto Detailing",
+  tagline: "Premium Car Detailing",
+  description: "Elite Auto Detailing offers premium interior and exterior detailing, paint correction and ceramic coating. Book online or call today.",
+  phone: { display: "(555) 555-0142", tel: "+15555550142" },
+  email: "hello@eliteautodetailing.example",
+  address: { line1: "123 Main Street", city: "Your City, ST 00000", mapUrl: "" }, /* leave mapUrl empty to auto-build a Google Maps link */
+  hours: [["Monday – Friday", "8:00 AM – 6:00 PM"], ["Saturday", "9:00 AM – 4:00 PM"], ["Sunday", "Closed"]],
+  calendly: { url: "https://calendly.com/your-username/detail-appointment", inline: false }, /* inline:true embeds the scheduler in the Contact section */
+  hero: {
+    eyebrow: "Premium detailing · Your City, ST",
+    headline: "Precision. Perfected.",
+    text: "Meticulous interior and exterior detailing, paint correction and ceramic protection for owners who notice the difference."
+  },
+  stats: [["10+", "Years of experience"], ["2,500+", "Vehicles detailed"], ["5.0", "Average rating"]],
+  about: {
+    title: "Obsessed with the details.",
+    paragraphs: [
+      "Elite Auto Detailing was founded on a simple idea: every vehicle deserves the care of a show car. We combine professional-grade products, proven technique and patient hands-on work.",
+      "From daily drivers to collector classics, we treat every vehicle as if it were our own and never rush a finish."
+    ],
+    points: ["Fully insured and bonded", "Premium, paint-safe products", "Satisfaction guaranteed", "Mobile service available"]
+  },
+  services: [
+    { name: "Exterior Wash & Wax", price: "From $75", desc: "Hand wash, decontamination, wheel and tire detail, and a protective wax finish." },
+    { name: "Interior Deep Clean", price: "From $120", desc: "Vacuum, steam clean, leather care and full surface sanitizing for a like-new cabin." },
+    { name: "Full Detail", price: "From $220", desc: "Our complete interior and exterior package for a showroom result." },
+    { name: "Paint Correction", price: "From $450", desc: "Machine polishing to remove swirls, scratches and oxidation and restore depth and gloss." },
+    { name: "Ceramic Coating", price: "From $750", desc: "Long-lasting protection with extreme gloss and easier maintenance." },
+    { name: "Headlight Restoration", price: "From $90", desc: "Remove haze and yellowing to improve appearance and night visibility." }
+  ],
+  gallery: [ /* add src:"images/photo.jpg" to show a real photo; empty src shows a placeholder tile */
+    { src: "", alt: "Sports coupe after paint correction", label: "Paint correction" },
+    { src: "", alt: "Leather interior after deep clean", label: "Interior restoration" },
+    { src: "", alt: "SUV with ceramic coating beading water", label: "Ceramic coating" },
+    { src: "", alt: "Polished alloy wheel", label: "Wheel detail" },
+    { src: "", alt: "Sedan finished with hand wax", label: "Hand wax finish" },
+    { src: "", alt: "Restored headlights", label: "Headlight restoration" }
+  ],
+  reviews: [ /* sample reviews: replace with real customer reviews */
+    { name: "Michael R.", vehicle: "BMW M4", rating: 5, text: "My car looked better than the day I bought it. The attention to detail is unmatched." },
+    { name: "Sarah L.", vehicle: "Tesla Model Y", rating: 5, text: "Booking was simple and the ceramic coating still beads water months later. Highly recommend." },
+    { name: "David K.", vehicle: "Ford F-150", rating: 5, text: "Professional, on time and fair pricing. The interior looks brand new." }
+  ],
+  social: [ /* e.g. { label: "Instagram", url: "https://instagram.com/yourpage" } */ ]
+};
+
+/* ---------------- Site code (no need to edit below) ---------------- */
+(function () {
+  const C = CONFIG, $ = s => document.querySelector(s), $$ = s => document.querySelectorAll(s);
+  const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  const addr = C.address.line1 + ", " + C.address.city;
+  const map = C.address.mapUrl || "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(addr);
+
+  document.title = C.name + " | " + C.tagline;
+  $("meta[name=description]").content = C.description;
+
+  $("#home .wrap").innerHTML = `<p class="eyebrow">${esc(C.hero.eyebrow)}</p><h1 id="h-home">${esc(C.hero.headline)}</h1><p class="lead">${esc(C.hero.text)}</p>
+    <div class="cta"><a class="btn" data-book>Book Appointment</a><a class="btn ghost" data-call>Call ${esc(C.phone.display)}</a></div>
+    <dl class="stats">${C.stats.map(s => `<div><dt>${esc(s[1])}</dt><dd>${esc(s[0])}</dd></div>`).join("")}</dl>`;
+
+  $("#about .wrap").innerHTML = `<div><p class="eyebrow">About us</p><h2 id="h-about">${esc(C.about.title)}</h2>${C.about.paragraphs.map(p => `<p class="muted">${esc(p)}</p>`).join("")}</div>
+    <ul class="ticks">${C.about.points.map(p => `<li>${esc(p)}</li>`).join("")}</ul>`;
+
+  $("#services .wrap").innerHTML = `<p class="eyebrow">Services</p><h2 id="h-services">What we do</h2><p class="lead">Every service is performed by hand with professional-grade products.</p>
+    <div class="grid">${C.services.map(s => `<article class="card"><span class="price">${esc(s.price)}</span><h3>${esc(s.name)}</h3><p>${esc(s.desc)}</p><a class="more" data-book>Book this service</a></article>`).join("")}</div>`;
+
+  $("#gallery .wrap").innerHTML = `<p class="eyebrow">Gallery</p><h2 id="h-gallery">Recent work</h2>
+    <div class="grid gal">${C.gallery.map(g => `<figure>${g.src ? `<img src="${esc(g.src)}" alt="${esc(g.alt)}" loading="lazy">` : `<div role="img" aria-label="${esc(g.alt)}" style="width:100%;height:100%"></div>`}<figcaption>${esc(g.label)}</figcaption></figure>`).join("")}</div>`;
+
+  const avg = (C.reviews.reduce((a, r) => a + r.rating, 0) / C.reviews.length).toFixed(1);
+  $("#reviews .wrap").innerHTML = `<p class="eyebrow">Reviews</p><h2 id="h-reviews">Trusted by drivers</h2><p class="lead"><span class="rate" role="img" aria-label="${avg} out of 5 stars">★★★★★</span> ${avg} average from ${C.reviews.length} reviews</p>
+    <div class="grid">${C.reviews.map(r => `<figure class="card" style="margin:0"><span class="stars" role="img" aria-label="${r.rating} out of 5 stars">${"★".repeat(r.rating)}${"☆".repeat(5 - r.rating)}</span><blockquote>“${esc(r.text)}”</blockquote><figcaption class="who">${esc(r.name)} · ${esc(r.vehicle)}</figcaption></figure>`).join("")}</div>`;
+
+  $("#contact .wrap").innerHTML = `<div class="two"><div><p class="eyebrow">Contact</p><h2 id="h-contact">Book your detail</h2><p class="muted">Schedule online in under a minute, or call and we’ll find a time that works.</p>
+    <div class="cta" style="margin:24px 0 0"><a class="btn" data-book>Book on Calendly</a><a class="btn ghost" data-call>Call ${esc(C.phone.display)}</a></div>
+    <dl><dt>Phone</dt><dd><a data-call>${esc(C.phone.display)}</a></dd><dt>Email</dt><dd><a href="mailto:${esc(C.email)}">${esc(C.email)}</a></dd>
+    <dt>Location</dt><dd>${esc(C.address.line1)}<br>${esc(C.address.city)}<br><a href="${esc(map)}" target="_blank" rel="noopener noreferrer" aria-label="Get directions (opens in new tab)">Get directions</a></dd>
+    <dt>Hours</dt><dd><table><tbody>${C.hours.map(h => `<tr><th scope="row">${esc(h[0])}</th><td>${esc(h[1])}</td></tr>`).join("")}</tbody></table></dd></dl></div>
+    <div>${C.calendly.inline ? `<iframe src="${esc(C.calendly.url)}" title="Schedule an appointment"></iframe>` : ""}
+    <h3 style="margin-bottom:16px">Send a message</h3>
+    <form id="cf"><label>Name<input name="name" required autocomplete="name"></label><label>Phone<input name="phone" type="tel" required autocomplete="tel"></label>
+    <label>Service<select name="service">${C.services.map(s => `<option>${esc(s.name)}</option>`).join("")}</select></label>
+    <label>Message<textarea name="message" rows="4" required></textarea></label><button class="btn" type="submit">Send message</button><p id="st" role="status"></p></form></div></div>`;
+
+  $("footer .wrap").innerHTML = `<span>© ${new Date().getFullYear()} ${esc(C.name)}. All rights reserved.</span><span>${C.social.map(s => `<a href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">${esc(s.label)}</a>`).join(" · ")} <a href="#home">Back to top</a></span>`;
+
+  $$("[data-name]").forEach(e => e.textContent = C.name);
+  $$("[data-call]").forEach(e => { e.href = "tel:" + C.phone.tel; });
+  $$("[data-book]").forEach(e => { e.href = C.calendly.url; e.target = "_blank"; e.rel = "noopener noreferrer"; e.setAttribute("aria-label", e.textContent.trim() + " (opens Calendly in a new tab)"); });
+
+  const ld = document.createElement("script");
+  ld.type = "application/ld+json";
+  ld.textContent = JSON.stringify({ "@context": "https://schema.org", "@type": "LocalBusiness", name: C.name, description: C.description, telephone: C.phone.tel, email: C.email, address: { "@type": "PostalAddress", streetAddress: C.address.line1, addressLocality: C.address.city } });
+  document.head.appendChild(ld);
+
+  /* mobile menu */
+  const menu = $("#menu"), nav = $("#nav");
+  const setMenu = open => { nav.classList.toggle("open", open); menu.setAttribute("aria-expanded", open); };
+  menu.addEventListener("click", () => setMenu(!nav.classList.contains("open")));
+  nav.addEventListener("click", e => { if (e.target.closest("a")) setMenu(false); });
+  document.addEventListener("keydown", e => { if (e.key === "Escape" && nav.classList.contains("open")) { setMenu(false); menu.focus(); } });
+
+  /* highlight current section in nav */
+  if ("IntersectionObserver" in window) {
+    const io = new IntersectionObserver(es => es.forEach(en => {
+      if (!en.isIntersecting) return;
+      $$("nav a").forEach(a => a.toggleAttribute("aria-current", a.getAttribute("href") === "#" + en.target.id));
+    }), { rootMargin: "-45% 0px -50% 0px" });
+    $$("main section").forEach(s => io.observe(s));
+  }
+
+  /* contact form: opens the visitor's email app (no server needed) */
+  $("#cf").addEventListener("submit", e => {
+    e.preventDefault();
+    const f = new FormData(e.target);
+    const body = "Name: " + f.get("name") + "\nPhone: " + f.get("phone") + "\nService: " + f.get("service") + "\n\n" + f.get("message");
+    location.href = "mailto:" + C.email + "?subject=" + encodeURIComponent("Appointment inquiry from " + f.get("name")) + "&body=" + encodeURIComponent(body);
+    $("#st").textContent = "Opening your email app. If nothing happens, email us at " + C.email + ".";
+  });
+})();
+</script>
+</body>
+</html>
